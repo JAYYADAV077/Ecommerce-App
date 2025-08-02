@@ -23,6 +23,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.ecommerceapp.ui.theme.EcommerceAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,51 +31,16 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-SplashScreen()
+                Hello()
         }
     }
 }
 
-@Preview(showBackground = true)
 @Composable
-fun SplashScreen(modifier: Modifier = Modifier) {
-    Image(
-        painter = painterResource(id = R.drawable.img),
-        null,
-        contentScale = ContentScale.Crop,
-        modifier = Modifier.fillMaxSize()
-
+fun Hello(modifier: Modifier = Modifier) {
+    Text(
+        "Hello",
+        fontSize = 100.sp
     )
-    Column(
-        modifier = Modifier.fillMaxSize()
-            .padding(16.dp)
-            .verticalScroll(rememberScrollState())
-            .padding(10.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-
-    ) {
-        Image(
-            painter = painterResource(id = R.drawable.img_2),
-            null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier.fillMaxSize()
-        )
-
-        Image(
-            painter = painterResource(id = R.drawable.img_1),
-            null,
-            contentScale = ContentScale.Fit,
-            modifier = Modifier.fillMaxWidth()
-                .padding(16.dp)
-        )
-
-        Image(
-            painter = painterResource(id = R.drawable.img_3),
-            null,
-            modifier = Modifier.fillMaxWidth()
-                .padding(top = 10.dp)
-                .clickable{}
-
-        )
-    }
 }
+

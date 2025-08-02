@@ -1,7 +1,11 @@
+import org.jetbrains.kotlin.gradle.model.KotlinAndroidExtension
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -37,6 +41,9 @@ android {
     buildFeatures {
         compose = true
     }
+  composeOptions{
+    kotlinCompilerExtensionVersion = "1.5.1"
+  }
 }
 
 dependencies {
@@ -49,6 +56,9 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.firebase.database)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.activity)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -56,4 +66,17 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation("io.coil-kt:coil-compose:2.2.2") // Image loading
+    implementation("com.google.accompanist:accompanist-pager-indicators:0.28.0")
+    implementation("com.google.accompanist:accompanist-pager:0.28.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+    implementation("androidx.compose.runtime:runtime-livedata:1.7.5")
+    implementation("com.github.bumptech.glide:glide:4.13.0")
+    implementation("com.google.code.gson:gson:2.10.1") // JSON parsing
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.1.0")
+    implementation("androidx.compose.foundation:foundation:1.5.0")
+    implementation("androidx.compose.ui:ui-tooling:1.7.5")
+    implementation("com.google.android.material:material:1.12.0") // Material components
+
+
 }
